@@ -1,0 +1,58 @@
+{% extends "directory/base.html" %}
+
+{% block title %}
+  <title>Teachers List</title>
+{% endblock %}
+
+{% block pagename %}
+  <span>Teachers List</span>
+{% endblock %}
+
+{% block body %}
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for teacher in teachers_list %}
+            <tr>
+              <th scope="row">{{ teacher.id}}</th>
+              <td>{{ teacher.fname }}</td>
+              <td>{{ teacher.lname }}</td>
+              <td>{{ teacher.email }}</td>
+              <!-- <td>{{ teacher.subjects }}</td> -->
+              <td><a href="/info/{{ teacher.id }}/">View</a></td>
+            </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+      <div class="pagination">
+          <span class="step-links">
+              {% if page_obj.has_previous %}
+                  <a href="?page=1">&laquo; first</a>
+                  <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+              {% endif %}
+
+              <span class="current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+
+              {% if page_obj.has_next %}
+                  <a href="?page={{ page_obj.next_page_number }}">next</a>
+                  <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+          </span>
+      </div>
+
+
+{% endblock %}

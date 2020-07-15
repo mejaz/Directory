@@ -1,0 +1,70 @@
+{% extends "directory/base.html" %}
+
+{% block title %}
+  <title>Add Teacher</title>
+{% endblock %}
+
+{% block pagename %}
+  <span>Add Teacher</span>
+{% endblock %}
+
+{% block body %}
+    {% load crispy_forms_tags %}
+    <div>
+
+      {% if messages %}
+        <div class='row message'>
+          {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+              <div class="alert alert-danger success-alert" role="alert">
+                {{ message }}
+              </div>
+            {% else %}
+              <div class="alert alert-success success-alert" role="alert">
+                {{ message }}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+    <div class='row'>
+      <div class='col-md-6 form-body'>
+
+        <form method='POST' action='{% url "add-teacher" %}' enctype="multipart/form-data" novalidate>
+          <div class='sub-heading-add'><span>Add Teachers Detail - Individual</span></div>
+          {% csrf_token %}
+          <div class='row'>
+            <div class='col-md-6 name'>
+              <div class='col-md-12'>{{ teacherForm.fname|as_crispy_field }}</div>
+              <div class='col-md-12'>{{ teacherForm.lname|as_crispy_field }}</div>
+            </div>
+
+            <div class='col-md-6'>{{ subjectForm.subject|as_crispy_field }}</div>
+
+          </div>
+          <div class='row'>
+            <div class='col-md-6'>{{ teacherForm.email|as_crispy_field }}</div>
+            <div class='col-md-6'>{{ teacherForm.room_number|as_crispy_field }}</div>
+          </div>
+          <div class='row'>
+            <div class='col-md-6'>{{ phoneForm.phone_number|as_crispy_field }}</div>
+            <div class='col-md-6'>{{ proPicForm.propic|as_crispy_field }}</div>
+          </div>
+          <div class='submit-button'>
+            <button type='submit' class="btn btn-info">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class='col-md-6 form-body'>
+        <form method='POST' action='{% url "add-teacher-bulk" %}' enctype="multipart/form-data" novalidate>
+          {% csrf_token %}
+          <div class='sub-heading-add'><span class='sub-heading-add'>Add Teachers Detail - Bulk Upload</span></div>
+          {{ ImporterForm|crispy }}
+          <button type='submit' class="btn btn-info">Upload</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

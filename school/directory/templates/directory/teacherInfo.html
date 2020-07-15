@@ -1,0 +1,83 @@
+{% extends "directory/base.html" %}
+
+{% block title %}
+  <title>Teachers Info</title>
+{% endblock %}
+
+{% block pagename %}
+  <span>Teachers Info</span>
+{% endblock %}
+
+{% block body %}
+    {% load crispy_forms_tags %}
+      <div class='row'>
+
+        <div class='col-md-4'>
+          <img class="img-fluid" src='/pictures/{{teacher_propic.propic}}/'  alt='pro-pic'/>
+        </div>
+
+        <div class="col-md-8">
+            <div class='row data-row'>
+              <div class="col-md-6">
+                <label for="formGroupExampleInput">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value={{teacher_info.fname}}
+                  disabled
+                  >
+              </div>
+              <div class="col-md-6">
+                <label for="formGroupExampleInput">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value={{teacher_info.lname}}
+                  disabled
+                  >
+              </div>
+            </div>
+            <div class='row data-row'>
+              <div class="col-md-6">
+                <label for="formGroupExampleInput">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value={{teacher_info.email}}
+                  disabled
+                  >
+              </div>
+              <div class="col-md-6">
+                <label for="formGroupExampleInput">Room Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value={{teacher_info.room_number}}
+                  disabled
+                  >
+              </div>
+            </div>
+            <div class="row data-row">
+              <div class="col-md-6">
+                <label for="formGroupExampleInput">Phone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value={{teacher_phone.phone_number}}
+                  disabled
+                  >
+              </div>
+              <div class="col-md-6">
+                <label for="formGroupExampleInput">Subjects</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value={{ teacher_subject }}
+                  disabled
+                  >
+              </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
