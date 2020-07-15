@@ -25,3 +25,7 @@ Steps to launch the Application:
 6. Create a super user, as the application has login feature - `python manage.py createsuperuser`
 7. Start the server - `python manage.py runserver`
 8. The application will start running at - `http://127.0.0.1:8000/`
+
+Contact me:
+-----------
+mohdejazsiddiqui@gmail.com
