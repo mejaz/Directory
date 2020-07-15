@@ -18,13 +18,15 @@ Configuration:
 Steps to launch the Application:
 --------------------------------
 1. Launch cmd(in Windows) or Terminal (in MacOS).
-2. Navigate to the root folder where the code is placed, `requirements.txt` file is located at this location.
-3. Run the command `pipenv install -r requirements.txt` to install the dependencies.
-4. Run `pipenv shell` to enter the virtual environment.
-5. Navigate to the `school` directory by running command - `cd school`
-6. Create a super user, as the application has login feature - `python manage.py createsuperuser`
-7. Start the server - `python manage.py runserver`
-8. The application will start running at - `http://127.0.0.1:8000/`
+2. Run the command to clone the repo in local folder - `git clone https://github.com/mejaz/Directory.git`
+3. Navigate inside `Directory` - `cd Directory`
+4. Run the command `pipenv install -r requirements.txt` to install the dependencies.
+5. Run `pipenv shell` to enter the virtual environment.
+6. Navigate to the `school` directory by running command - `cd school`
+7. Run command - `python manage.py migrate` to create the applicaiton tables in SQLiteDB.
+8. Create a super user, as the application has login feature - `python manage.py createsuperuser`
+9. Start the server - `python manage.py runserver`
+10. The application will start running at - `http://127.0.0.1:8000/`
 
 Contact me:
 -----------
